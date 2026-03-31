@@ -58,7 +58,7 @@ def render_landing_page(settings: dict, page_registry: dict[str, st.Page]) -> No
         with profile_columns[0]:
             with st.container(border=True):
                 st.markdown("### Hi, I'm Akhil")
-                st.markdown("Welcome to my profile")
+                st.markdown("Welcome to my profile!")
                 if profile.get("landing_bio_intro"):
                     st.write(profile["landing_bio_intro"])
                     st.markdown(f"##### {profile["favorite_quote"]}")
