@@ -13,6 +13,21 @@ from pages.projects_page import render_projects_page
 from pages.schedule_page import render_schedule_page
 from pages.work_page import render_work_page
 
+def resolve_photo_source(profile: dict) -> str | None:
+    photo_url = profile.get("photo_url")
+    if photo_url:
+        return photo_url
+
+    photo_path = profile.get("photo_path")
+    if not photo_path:
+        return None
+
+    candidate = Path(photo_path)
+    if candidate.exists():
+        return str(candidate)
+
+    return None
+
 
 def render_landing_page(settings: dict, page_registry: dict[str, st.Page]) -> None:
     profile = settings["profile"]
@@ -281,21 +296,6 @@ def build_navigation(settings: dict) -> st.navigation:
     )
     return navigation
 
-
-def resolve_photo_source(profile: dict) -> str | None:
-    photo_url = profile.get("photo_url")
-    if photo_url:
-        return photo_url
-
-    photo_path = profile.get("photo_path")
-    if not photo_path:
-        return None
-
-    candidate = Path(photo_path)
-    if candidate.exists():
-        return str(candidate)
-
-    return None
 
 
 def main() -> None:
