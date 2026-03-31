@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/smlit_logo.png" alt="Streamlit" />
+  <img src="assets/logo.png" />
 </p>
 
 # MyProfile
