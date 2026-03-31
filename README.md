@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" alt="Streamlit" />
+  <img src="assets/streamlit_logo.png" alt="Streamlit" width="140" />
 </p>
 
 # MyProfile
