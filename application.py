@@ -13,6 +13,9 @@ from pages.projects_page import render_projects_page
 from pages.schedule_page import render_schedule_page
 from pages.work_page import render_work_page
 
+APP_ROOT = Path(__file__).resolve().parent
+
+
 def resolve_photo_source(profile: dict) -> str | None:
     photo_url = profile.get("photo_url")
     if photo_url:
@@ -23,8 +26,20 @@ def resolve_photo_source(profile: dict) -> str | None:
         return None
 
     candidate = Path(photo_path)
+    if not candidate.is_absolute():
+        candidate = APP_ROOT / candidate
+
     if candidate.exists():
         return str(candidate)
+
+    parent = candidate.parent
+    if not parent.exists():
+        return None
+
+    normalized_name = candidate.name.casefold()
+    for sibling in parent.iterdir():
+        if sibling.name.casefold() == normalized_name:
+            return str(sibling)
 
     return None
 
