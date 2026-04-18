@@ -45,23 +45,38 @@ def resolve_photo_source(profile: dict) -> str | None:
 def render_google_scheduling_button(url: str, label: str, color: str = "#039BE5") -> None:
     components.html(
         f"""
+        <div id="google-calendar-booking-button"></div>
         <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
         <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
         <script>
-        (function() {{
-          var target = document.currentScript;
-          window.addEventListener('load', function() {{
+        (function initBookingButton() {{
+          var target = document.getElementById("google-calendar-booking-button");
+          if (!target) return;
+
+          function loadButton() {{
+            if (!(window.calendar && calendar.schedulingButton && calendar.schedulingButton.load)) {{
+              window.setTimeout(loadButton, 150);
+              return;
+            }}
+
+            target.innerHTML = "";
             calendar.schedulingButton.load({{
               url: {json.dumps(url)},
               color: {json.dumps(color)},
               label: {json.dumps(label)},
-              target,
+              target: target,
             }});
-          }});
+          }}
+
+          if (document.readyState === "loading") {{
+            document.addEventListener("DOMContentLoaded", loadButton, {{ once: true }});
+          }} else {{
+            loadButton();
+          }}
         }})();
         </script>
         """,
-        height=72,
+        height=90,
     )
 
 
