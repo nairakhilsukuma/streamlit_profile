@@ -115,7 +115,7 @@ calendar:
   title: "Reserve time with me"
   description: "Use my Google booking page to find an open slot for a focused conversation."
   booking_label: "Book a meeting"
-  booking_url: "https://calendar.google.com/calendar/u/0?cid=YWtoaWxzdWt1bmFpckBnbWFpbC5jb20"
+  booking_url: "https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FNew_York&showPrint=0&src=YWtoaWxzdWt1bmFpckBnbWFpbC5jb20&src=ZW4uaW5kaWFuI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%23039be5&color=%230b8043"
   privacy_note: "Availability and confirmed bookings stay managed by Google Calendar rather than being stored inside this app."
   meeting_topics:
     - "Product ideas and MVP directions"
