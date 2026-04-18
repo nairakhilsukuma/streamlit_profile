@@ -30,7 +30,7 @@ profile:
       url: "https://www.linkedin.com/in/asn95/"
     - label: "Meeting"
       icon: "calendar"
-      url: "https://calendar.google.com/"
+      url: "https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FNew_York&showPrint=0&src=YWtoaWxzdWt1bmFpckBnbWFpbC5jb20&src=ZW4uaW5kaWFuI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%23039be5&color=%230b8043"
 
 work_intro: "The kinds of tasks I naturally move toward: Solving problems, Shaping Ideas, and Turning complexity into something people can navigate with confidence."
 work_areas:
