@@ -180,31 +180,31 @@ def render_landing_page(settings: dict, page_registry: dict[str, st.Page]) -> No
                     use_container_width=True,
                 )
 
-    if support.get("url"):
-        render_section_intro(
-            "Support",
-            support.get("title", "Support My Projects"),
-            support.get(
-                "description",
-                "If you are interested in supporting my projects, want to know more, or would like to collaborate, feel free to buy me a coffee.",
-            ),
-        )
-        with st.container(border=True):
-            support_columns = st.columns([1.4, 0.6])
-            with support_columns[0]:
-                st.write(
-                    support.get(
-                        "description",
-                        "If you are interested in supporting my projects, want to know more, or would like to collaborate, feel free to buy me a coffee.",
-                    )
-                )
-            with support_columns[1]:
-                st.link_button(
-                    support.get("button_label", "Buy Me a Coffee"),
-                    support["url"],
-                    icon=":material/coffee:",
-                    use_container_width=True,
-                )
+    # if support.get("url"):
+    #     render_section_intro(
+    #         "Support",
+    #         support.get("title", "Support My Projects"),
+    #         support.get(
+    #             "description",
+    #             "If you are interested in supporting my projects, want to know more, or would like to collaborate, feel free to buy me a coffee.",
+    #         ),
+    #     )
+    #     with st.container(border=True):
+    #         support_columns = st.columns([1.4, 0.6])
+    #         with support_columns[0]:
+    #             st.write(
+    #                 support.get(
+    #                     "description",
+    #                     "If you are interested in supporting my projects, want to know more, or would like to collaborate, feel free to buy me a coffee.",
+    #                 )
+    #             )
+    #         with support_columns[1]:
+    #             st.link_button(
+    #                 support.get("button_label", "Buy Me a Coffee"),
+    #                 support["url"],
+    #                 icon=":material/coffee:",
+    #                 use_container_width=True,
+    #             )
 
 
 def build_navigation(settings: dict) -> st.navigation:
