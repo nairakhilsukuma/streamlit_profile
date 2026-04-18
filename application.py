@@ -1,8 +1,10 @@
 
 from __future__ import annotations
 from functools import partial
+import json
 from pathlib import Path
 import streamlit as st
+import streamlit.components.v1 as components
 from app_helpers.settings import load_settings_file
 from app_helpers.ui import inject_theme, render_icon_links, render_section_intro, render_tag_cloud
 
@@ -38,6 +40,29 @@ def resolve_photo_source(profile: dict) -> str | None:
             return str(sibling)
 
     return None
+
+
+def render_google_scheduling_button(url: str, label: str, color: str = "#039BE5") -> None:
+    components.html(
+        f"""
+        <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+        <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+        <script>
+        (function() {{
+          var target = document.currentScript;
+          window.addEventListener('load', function() {{
+            calendar.schedulingButton.load({{
+              url: {json.dumps(url)},
+              color: {json.dumps(color)},
+              label: {json.dumps(label)},
+              target,
+            }});
+          }});
+        }})();
+        </script>
+        """,
+        height=72,
+    )
 
 
 def render_landing_page(settings: dict, page_registry: dict[str, st.Page]) -> None:
@@ -173,11 +198,10 @@ def render_landing_page(settings: dict, page_registry: dict[str, st.Page]) -> No
             st.markdown(f"### **{calendar.get('provider', 'Google Calendar')}**")
             st.write(calendar.get("privacy_note", "Booking data stays with your calendar provider."))
             if calendar.get("booking_url"):
-                st.link_button(
-                    calendar.get("booking_label", "Book on Google Calendar"),
+                render_google_scheduling_button(
                     calendar["booking_url"],
-                    icon=":material/calendar_month:",
-                    use_container_width=True,
+                    calendar.get("booking_label", "Book an appointment"),
+                    calendar.get("booking_color", "#039BE5"),
                 )
 
     if support.get("url"):
