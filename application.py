@@ -159,7 +159,7 @@ def render_landing_page(settings: dict, page_registry: dict[str, st.Page]) -> No
             height=SCHEDULE_CARD_HEIGHT,
             key="schedule_topics_card",
         ):
-            st.subheader(calendar.get("title", "Reserve a meeting"))
+            st.subheader(calendar.get("title", "Reserve a meet"))
             for topic in calendar.get("meeting_topics", []):
                 st.write(f"- {topic}")
 
@@ -174,7 +174,7 @@ def render_landing_page(settings: dict, page_registry: dict[str, st.Page]) -> No
             st.write(calendar.get("privacy_note", "Booking data stays with your calendar provider."))
             if calendar.get("booking_url"):
                 st.link_button(
-                    calendar.get("booking_label", "Book a meeting"),
+                    calendar.get("booking_label", "Book a meet"),
                     calendar["booking_url"],
                     icon=":material/calendar_month:",
                     use_container_width=True,
