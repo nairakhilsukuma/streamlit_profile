@@ -19,22 +19,22 @@ def render_projects_page(settings: dict, page_registry: dict[str, st.Page]) -> N
             st.caption(project.get("status", "In progress"))
             st.subheader(project["name"])
             st.write(project["summary"])
+            for paragraph in project.get("description", []):
+                st.write(paragraph)
+            if project.get("outcomes"):
+                st.caption("Outcomes")
+                for outcome in project["outcomes"]:
+                    st.write(f"- {outcome}")
             if project.get("stack"):
                 render_tag_cloud(project["stack"])
-            st.page_link(
-                page_registry[f"project:{project['slug']}"],
-                label=project.get("detail_label", "Open project page"),
-                icon=":material/open_in_new:",
-                use_container_width=True,
-            )
             if project.get("github_url"):
                 st.link_button("GitHub", project["github_url"], use_container_width=True)
             if project.get("demo_url"):
                 st.link_button("Demo", project["demo_url"], use_container_width=True)
 
     st.page_link(
-        page_registry["schedule"],
-        label="Discuss a project or collaboration",
-        icon=":material/event_available:",
+        page_registry["home"],
+        label=f"Back to {settings['navigation']['home_label']}",
+        icon=":material/arrow_back:",
         use_container_width=True,
     )

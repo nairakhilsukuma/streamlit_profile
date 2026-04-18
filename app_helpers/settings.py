@@ -9,11 +9,7 @@ from typing import Any
 DEFAULT_NAVIGATION = {
     "home_label": "Home",
     "bio_label": "Bio",
-    "work_label": "Areas of Work",
-    "interests_label": "Interests",
     "projects_label": "Projects",
-    "github_label": "GitHub",
-    "schedule_label": "Schedule",
     "primary_section_label": "Explore",
 }
 
@@ -71,13 +67,6 @@ def normalize_settings(data: dict[str, Any]) -> dict[str, Any]:
     profile.setdefault("signature_points", [])
 
     work_areas = [dict(item) for item in data.get("work_areas", [])]
-    interests = dict(data.get("interests", {}))
-    interests.setdefault("intro", "")
-    interests.setdefault("items", [])
-
-    github = dict(data.get("github", {}))
-    github.setdefault("repositories", [])
-
     projects: list[dict[str, Any]] = []
     for item in data.get("projects", []):
         project = dict(item)
@@ -91,31 +80,27 @@ def normalize_settings(data: dict[str, Any]) -> dict[str, Any]:
     calendar.setdefault("provider", "Google Calendar")
     calendar.setdefault("meeting_topics", [])
 
+    support = dict(data.get("support", {}))
+    support.setdefault("title", "Support My Projects")
+    support.setdefault(
+        "description",
+        "If you are interested in supporting my projects, want to know more, or would like to collaborate, feel free to buy me a coffee.",
+    )
+    support.setdefault("button_label", "Buy Me a Coffee")
+
     normalized = {
         "profile": profile,
         "work_areas": work_areas,
         "work_intro": data.get("work_intro", "A snapshot of the work I like to do best."),
-        "interests": interests,
-        "github": github,
         "projects": projects,
         "projects_intro": data.get(
             "projects_intro",
             "The projects that are shipping, evolving, or being explored right now.",
         ),
         "calendar": calendar,
+        "support": support,
         "navigation": {**DEFAULT_NAVIGATION, **dict(data.get("navigation", {}))},
     }
-
-    if not normalized["github"]["repositories"]:
-        normalized["github"]["repositories"] = [
-            {
-                "name": project["name"],
-                "description": project["summary"],
-                "url": project["github_url"],
-            }
-            for project in projects
-            if project.get("github_url")
-        ]
 
     return normalized
 
@@ -137,7 +122,6 @@ def merge_nested(base: dict[str, Any], override: dict[str, Any]) -> dict[str, An
 def slugify(value: str) -> str:
     slug = re.sub(r"[^a-z0-9]+", "-", value.lower()).strip("-")
     return slug or "project"
-
 
 def parse_simple_yaml(raw_text: str) -> Any:
     prepared_lines = _prepare_lines(raw_text)

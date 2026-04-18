@@ -8,7 +8,7 @@ profile:
   hero_eyebrow: " Physics informed AI, Optimal Control, Real Time Optimization, Planning and Scheduling"
   hero_title: "I build bridges between Processes, Fundamental Physics and Software for Data Driven Decision Making."
   hero_summary: "This profile works like a lightweight studio site: it introduces how I think, the work I care about, the projects currently in motion, and the easiest way to schedule time together."
-  landing_bio_intro: "Builder of Industrial Process Systems who turns ideas into useful and reliable products. I prioritize clarity, fast iteration, and transparent, non‑blackbox engineering which people can trust. My path spans Manufacturing operations → Systems engineering → Software development"
+  landing_bio_intro: "Engineer and systems builder focused on turning ideas into useful and reliable products. I prioritize clarity, fast iteration, and transparent, non‑blackbox engineering which people can trust. My path spans Manufacturing operations → Systems engineering → Software development"
   favorite_quote: “Of Science and Human Heart, There is no Limit" - Paul Hewson
   bio_page_intro: "A little more context on how I work, what I care about, and the kinds of conversations I enjoy having."
   bio:
@@ -18,16 +18,21 @@ profile:
   availability_badge: "Meaningful collaborations, Mental health, Career guidance/orientation (Chemical & Systems Engineering)"
   focus_note: "Execution-led"
   projects_note: "Shipping and exploring"
-  interests_note: "Always learning"
   social_links:
-    - label: "Email"
-      url: "mailto:akhilsukunair@gmail.com"
+    - label: "Gmail"
+      icon: "gmail"
+      url: "https://mail.google.com/mail/?view=cm&fs=1&to=akhilsukunair@gmail.com"
     - label: "GitHub"
+      icon: "github"
       url: "https://github.com/nairakhilsukuma"
     - label: "LinkedIn"
+      icon: "linkedin"
       url: "https://www.linkedin.com/in/asn95/"
+    - label: "Meeting"
+      icon: "calendar"
+      url: "https://calendar.google.com/"
 
-work_intro: "The kinds of problems I naturally move toward: Solving problems, Shaping Ideas, and Turning complexity into something people can navigate with confidence."
+work_intro: "The kinds of tasks I naturally move toward: Solving problems, Shaping Ideas, and Turning complexity into something people can navigate with confidence."
 work_areas:
   - title: "Full-Stack Process Controls and Optimization"
     eyebrow: "Build"
@@ -39,7 +44,7 @@ work_areas:
       - "UX for ML-DL solutions"
   - title: "Optimization Software Design "
     eyebrow: "Craft"
-    summary: "Building interfaces and flows that feel modern, direct, and structured around the actual decisions users need to make."
+    summary: "Building interfaces that feel modern, direct, and structured around the actual decisions users need."
     highlight: "Best when the goal is to move from concept to working product quickly."
     focus_tags:
       - "Streamlit"
@@ -47,45 +52,19 @@ work_areas:
       - "Interaction design"
   - title: "Systems and Execution"
     eyebrow: "Scale"
-    summary: "Creating enough structure around projects that they stay clear, maintainable, and easy to iterate on as they grow."
+    summary: "Creating structure around projects that they stay clear, maintainable, and easy to iterate on."
     highlight: "Useful when a promising idea needs operating clarity, not just more code."
     focus_tags:
       - "Systems Architecture"
       - "MLOps pipelines"
       - "Delivery rhythm"
 
-interests:
-  intro: "These are the threads I keep returning to when I read, build, or think about the next few years of software."
-  items:
-    - title: "Agentic software"
-      summary: "How products can move beyond static interfaces and become active collaborators without becoming noisy or unpredictable."
-      link_label: "Read more"
-      link_url: "https://openai.com/"
-    - title: "Human-centered AI experiences"
-      summary: "Making intelligence feel useful, trustworthy, and legible inside real product surfaces."
-      link_label: "Explore"
-      link_url: "https://developers.googleblog.com/"
-    - title: "Systems thinking"
-      summary: "Understanding how individual features connect to product behavior, team workflows, and long-term maintainability."
-      link_label: "Browse"
-      link_url: "https://martinfowler.com/"
-    - title: "Creative tooling"
-      summary: "Interfaces and frameworks that make experimentation feel fast, intuitive, and a little delightful."
-      link_label: "See examples"
-      link_url: "https://streamlit.io/gallery"
-
-github:
-  profile_url: "https://github.com/"
-  profile_label: "Visit GitHub profile"
-  headline: "A clean route into repositories, experiments, and project code that sits behind the public-facing story."
-
-projects_intro: "A short list of active work. Each project page goes deeper into what it is, where it stands, and where it could go next."
+projects_intro: "A short list of active work. This page goes deeper into what each project is, where it stands, and where it could go next."
 projects:
   - slug: "profile-webapp"
     name: "Profile WebApp"
     status: "Now building"
     summary: "A polished, settings-driven Streamlit profile app that behaves more like a modern portfolio experience than a plain dashboard."
-    detail_label: "Open profile webapp page"
     github_url: "https://github.com/"
     stack:
       - "Python"
@@ -94,7 +73,7 @@ projects:
     outcomes:
       - "Create a profile that feels alive and interactive."
       - "Keep all content editable from configuration rather than code."
-      - "Give visitors clear paths into projects, interests, and scheduling."
+      - "Give visitors clear paths into projects and scheduling."
     description:
       - "This project turns a static profile into an interactive experience. Instead of treating a personal site as a brochure, it treats it as a product surface with purposeful navigation and clear calls to action."
       - "The structure is intentionally modular so the content can evolve as your work changes without rewriting the app each time."
@@ -102,7 +81,6 @@ projects:
     name: "Calendar Booking Flow"
     status: "Configuring"
     summary: "A secure scheduling layer that routes visitors into a Google booking page without storing calendar credentials in the app."
-    detail_label: "Open calendar flow page"
     github_url: "https://github.com/"
     stack:
       - "Google Calendar"
@@ -118,8 +96,7 @@ projects:
   - slug: "project-story-pages"
     name: "Project Story Pages"
     status: "In progress"
-    summary: "Internal project detail pages that give each build its own context, narrative, links, and next-step framing."
-    detail_label: "Open project story page"
+    summary: "A dedicated projects page that gives each build enough context, narrative, links, and next-step framing without adding extra routes."
     github_url: "https://github.com/"
     stack:
       - "Callable pages"
@@ -128,29 +105,31 @@ projects:
     outcomes:
       - "Make projects easier to scan from the landing page."
       - "Create depth without cluttering the home view."
-      - "Keep navigation elegant as the number of projects grows."
+      - "Keep navigation elegant while staying within two pages."
     description:
-      - "Each project gets its own internal page so visitors can decide how deep they want to go. The landing page stays sharp and high-signal, while the project page handles explanation and context."
+      - "The projects page gives each build enough space for explanation without pushing visitors through extra routes. The landing page stays sharp and high-signal, while the projects page handles the deeper context."
       - "This gives you a structure that can grow naturally as your portfolio expands."
 
 calendar:
   provider: "Google Calendar"
   title: "Reserve time with me"
-  description: "Use my Google booking page to find an open slot for a focused conversation. The booking itself stays with Google Calendar, while this app acts as the branded front door."
+  description: "Use my Google booking page to find an open slot for a focused conversation."
   booking_label: "Book a meeting"
-  booking_url: "https://calendar.google.com/"
+  booking_url: "https://calendar.google.com/calendar/u/0?cid=YWtoaWxzdWt1bmFpckBnbWFpbC5jb20"
   privacy_note: "Availability and confirmed bookings stay managed by Google Calendar rather than being stored inside this app."
   meeting_topics:
-    - "Product ideas and MVP direction"
-    - "Mental Health discussions"
+    - "Product ideas and MVP directions"
+    - "Career Talks & Mental Health discussions"
     - "Portfolio, project, or collaboration conversations"
+
+support:
+  title: "Support My Projects"
+  description: "If you are interested in supporting my projects, want to know more, or would like to collaborate, feel free to buy me a coffee."
+  button_label: "Buy Me a Coffee"
+  url: "https://buymeacoffee.com/nairas"
 
 navigation:
   home_label: "Home"
   bio_label: "Bio"
-  work_label: "Areas of Work"
-  interests_label: "Interests"
   projects_label: "Projects"
-  github_label: "GitHub"
-  schedule_label: "Schedule"
   primary_section_label: "Profile"
