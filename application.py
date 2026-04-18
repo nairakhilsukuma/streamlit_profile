@@ -9,6 +9,7 @@ from app_helpers.ui import inject_theme, render_icon_links, render_section_intro
 APP_ROOT = Path(__file__).resolve().parent
 TOP_CARD_HEIGHT = 250
 WORK_CARD_HEIGHT = 230
+SCHEDULE_CARD_HEIGHT = 220
 
 
 def resolve_photo_source(profile: dict) -> str | None:
@@ -153,13 +154,21 @@ def render_landing_page(settings: dict, page_registry: dict[str, st.Page]) -> No
     )
     schedule_columns = st.columns([1.1, 1])
     with schedule_columns[0]:
-        with st.container(border=True):
+        with st.container(
+            border=True,
+            height=SCHEDULE_CARD_HEIGHT,
+            key="schedule_topics_card",
+        ):
             st.subheader(calendar.get("title", "Reserve a meeting"))
             for topic in calendar.get("meeting_topics", []):
                 st.write(f"- {topic}")
 
     with schedule_columns[1]:
-        with st.container(border=True):
+        with st.container(
+            border=True,
+            height=SCHEDULE_CARD_HEIGHT,
+            key="schedule_provider_card",
+        ):
             st.caption("Booking provider")
             st.markdown(f"### **{calendar.get('provider', 'Google Calendar')}**")
             st.write(calendar.get("privacy_note", "Booking data stays with your calendar provider."))

@@ -286,6 +286,25 @@ def inject_theme(theme: dict) -> None:
                 height: 100%;
             }}
 
+            .st-key-schedule_topics_card,
+            .st-key-schedule_provider_card {{
+                height: 100%;
+            }}
+
+            .st-key-schedule_topics_card [data-testid="stVerticalBlockBorderWrapper"],
+            .st-key-schedule_provider_card [data-testid="stVerticalBlockBorderWrapper"] {{
+                height: 100%;
+            }}
+
+            .st-key-schedule_topics_card [data-testid="stVerticalBlock"],
+            .st-key-schedule_provider_card [data-testid="stVerticalBlock"] {{
+                height: 100%;
+            }}
+
+            .st-key-schedule_provider_card [data-testid="stVerticalBlock"] {{
+                justify-content: space-between;
+            }}
+
             @media (max-width: 900px) {{
                 .hero-panel {{
                     grid-template-columns: 1fr;
