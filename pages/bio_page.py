@@ -162,17 +162,11 @@ def render_bio_page(settings: dict, page_registry: dict[str, st.Page] | None = N
 
     st.success("Open to roles in Advanced Controls, Optimization, and Industrial AI Systems")
 
-    footer_columns = st.columns(2)
+    footer_columns = st.columns(1)
     footer_columns[0].page_link(
         page_registry.get("home", "application.py"),
         label=navigation["home_label"],
         icon=":material/home:",
-        use_container_width=True,
-    )
-    footer_columns[1].page_link(
-        page_registry.get("projects", "pages/projects_page.py"),
-        label=navigation["projects_label"],
-        icon=":material/rocket_launch:",
         use_container_width=True,
     )
 

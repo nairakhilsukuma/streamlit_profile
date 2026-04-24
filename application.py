@@ -6,7 +6,6 @@ import streamlit as st
 from app_helpers.settings import load_settings_file
 from app_helpers.ui import inject_theme, render_icon_links, render_section_intro, render_tag_cloud
 from pages.bio_page import render_bio_page
-from pages.projects_page import render_projects_page
 
 APP_ROOT = Path(__file__).resolve().parent
 TOP_CARD_HEIGHT = 250
@@ -122,14 +121,8 @@ def render_landing_page(settings: dict, page_registry: dict[str, st.Page]) -> No
         icon=":material/person:",
         use_container_width=True,
     )
-    action_columns[1].page_link(
-        page_registry["projects"],
-        label=settings["navigation"]["projects_label"],
-        icon=":material/rocket_launch:",
-        use_container_width=True,
-    )
     if calendar.get("booking_url"):
-        action_columns[2].link_button(
+        action_columns[1].link_button(
             calendar.get("booking_label", "Book on Google Calendar"),
             calendar["booking_url"],
             icon=":material/calendar_month:",
@@ -231,18 +224,11 @@ def build_navigation(settings: dict) -> st.navigation:
         icon=":material/person:",
         url_path="bio",
     )
-    projects_page = st.Page(
-        partial(render_projects_page, settings, page_registry),
-        title=settings["navigation"]["projects_label"],
-        icon=":material/rocket_launch:",
-        url_path="projects",
-    )
 
     page_registry.update(
         {
             "home": landing_page,
             "bio": bio_page,
-            "projects": projects_page,
         }
     )
 
@@ -251,7 +237,6 @@ def build_navigation(settings: dict) -> st.navigation:
             settings["navigation"]["primary_section_label"]: [
                 landing_page,
                 bio_page,
-                projects_page,
             ]
         },
         position="top",
